@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Zé Faísca: The Saga (Versão Gráfica HD)</title>
+    <!-- Importando o arquivo de estilos externos -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <div class="hud-top">
+        <div id="phaseTitle" style="color: #00ffcc;">Carregando Fase...</div>
+        <div id="gameAlert" class="alert-msg">Iniciando sistemas...</div>
+        <div>PONTOS: <span id="scoreVal" style="color: #ffd700;">0</span></div>
+        <div class="inv-box">
+            <span>Objetivos:</span>
+            <div id="slot0" class="inv-item"></div>
+            <div id="slot1" class="inv-item"></div>
+            <div id="slot2" class="inv-item"></div>
+            <div id="slot3" class="inv-item"></div>
+            <div id="slot4" class="inv-item"></div>
+        </div>
+    </div>
+
+    <div id="gameWrapper">
+        <canvas id="gameCanvas" width="800" height="420"></canvas>
+    </div>
+
+    <div class="controls-info">
+        <strong>Controles Ativos:</strong> ⬅️ ➡️ Andar pelas Seções | ⬆️ Pular Obstáculos e Plataformas Neon <br>
+        <em>O cenário agora possui profundidade e imagens reais carregadas diretamente da simulação cibernética. Colete todos os itens da barra de objetivos superior para ligar o ponto final da fase e avançar na carreira!</em>
+    </div>
+
+    <!-- Carregando a lógica externa do jogo -->
+    <script src="jogo.js"></script>
+</body>
+</html>

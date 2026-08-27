@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerador de Sprites: Zé Faísca HD</title>
+    <style>
+        body { background: #0a0f1d; color: #fff; font-family: sans-serif; text-align: center; padding: 20px; }
+        .canvas-container { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
+        .box { background: #141b2d; padding: 15px; border-radius: 8px; border: 2px solid #00ffcc; }
+        canvas { background: transparent; border: 1px dashed #445566; display: block; margin: 10px auto; }
+        p { color: #8aa4c0; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <h1>Gerador de Artes: Saga do Zé Faísca</h1>
+    <p>Clique com o botão direito em cima de qualquer imagem e selecione "Salvar imagem como..." para usar na pasta do seu jogo!</p>
+
+    <div class="canvas-container">
+        <!-- BOX 1: JOGADOR -->
+        <div class="box">
+            <h3>Zé Faísca (Eletricista Neon)</h3>
+            <canvas id="canvasPlayer" width="120" height="150"></canvas>
+            <p>Salve como: <code>player.png</code></p>
+        </div>
+
+        <!-- BOX 2: INIMIGO -->
+        <div class="box">
+            <h3>Cachorro Cibernético (Fera)</h3>
+            <canvas id="canvasDog" width="120" height="120"></canvas>
+            <p>Salve como: <code>dog.png</code></p>
+        </div>
+
+        <!-- BOX 3: UNO -->
+        <div class="box">
+            <h3>Fiat Uno com Escada</h3>
+            <canvas id="canvasUno" width="200" height="120"></canvas>
+            <p>Salve como: <code>uno.png</code></p>
+        </div>
+    </div>
+
+<script>
+    // --- DESENHANDO O ZÉ FAÍSCA ---
+    const cPlayer = document.getElementById('canvasPlayer');
+    const ctxP = cPlayer.getContext('2d');
+    
+    // Brilho Neon de Simulação
+    ctxP.shadowBlur = 15;
+    ctxP.shadowColor = "#00ffcc";
+    
+    // Uniforme Eletricista
+    ctxP.fillStyle = "#0055ff";
+    ctxP.fillRect(40, 50, 40, 60);
+    // Detalhes Refletivos no colete
+    ctxP.fillStyle = "#ffd700";
+    ctxP.fillRect(40, 65, 40, 6);
+    ctxP.fillRect(40, 80, 40, 6);
+    
+    // Rosto
+    ctxP.shadowBlur = 0;
+    ctxP.fillStyle = "#ffdbac";
+    ctxP.beginPath(); ctxP.arc(60, 32, 16, 0, Math.PI*2); ctxP.fill();
+    
+    // Capacete de Engenharia/Eletricista
+    ctxP.shadowBlur = 10; ctxP.shadowColor = "#ffd700";
+    ctxP.fillStyle = "#ffd700";
+    ctxP.beginPath(); ctxP.arc(60, 22, 18, Math.PI, 0); ctxP.fill();
+    ctxP.fillRect(38, 22, 44, 4); // Aba
+    
+    // Botas Isolantes
+    ctxP.shadowBlur = 0;
+    ctxP.fillStyle = "#4a2700";
+    ctxP.fillRect(42, 110, 14, 15); ctxP.fillRect(36, 120, 20, 5);
+    ctxP.fillRect(64, 110, 14, 15); ctxP.fillRect(64, 120, 20, 5);
+
+
+    // --- DESENHANDO O CACHORRO ---
+    const cDog = document.getElementById('canvasDog');
+    const ctxD = cDog.getContext('2d');
+    
+    ctxD.shadowBlur = 15; ctxD.shadowColor = "#ff3300";
+    ctxD.fillStyle = "#ff4422"; // Vermelho Alerta/Ameaça
+    // Corpo
+    ctxD.fillRect(20, 50, 70, 40);
+    // Cabeça
+    ctxD.fillRect(75, 25, 30, 30);
+    // Orelhas arrebitadas
+    ctxD.beginPath();
+    ctxD.moveTo(75, 25); ctxD.lineTo(85, 10); ctxD.lineTo(90, 25); ctxD.fill();
+    // Olho brilhante
+    ctxD.fillStyle = "#fff"; ctxD.fillRect(92, 32, 6, 6);
+    // Pernas
+    ctxD.fillStyle = "#cc2200";
+    ctxD.fillRect(30, 90, 10, 20); ctxD.fillRect(70, 90, 10, 20);
+
+
+    // --- DESENHANDO O UNO DE FIRMA ---
+    const cUno = document.getElementById('canvasUno');
+    const ctxU = cUno.getContext('2d');
+    
+    ctxU.shadowBlur = 10; ctxU.shadowColor = "#ffffff";
+    // Corpo do carro
+    ctxU.fillStyle = "#f0f0f0";
+    ctxU.fillRect(20, 50, 160, 45); // Base
+    ctxU.fillRect(50, 25, 90, 30); // Cabine
+    
+    // Janelas escuras
+    ctxU.shadowBlur = 0;
+    ctxU.fillStyle = "#111a24";
+    ctxU.fillRect(58, 30, 35, 20);
+    ctxU.fillRect(98, 30, 35, 20);
+    
+    // Rodas
+    ctxU.fillStyle = "#222";
+    ctxU.beginPath(); ctxU.arc(55, 95, 16, 0, Math.PI*2); ctxU.fill();
+    ctxU.beginPath(); ctxU.arc(145, 95, 16, 0, Math.PI*2); ctxU.fill();
+    ctxU.fillStyle = "#888";
+    ctxU.beginPath(); ctxU.arc(55, 95, 6, 0, Math.PI*2); ctxU.fill();
+    ctxU.beginPath(); ctxU.arc(145, 95, 6, 0, Math.PI*2); ctxU.fill();
+    
+    // ESCADA EM CIMA (O Item lendário da firma)
+    ctxU.shadowBlur = 8; ctxU.shadowColor = "#ff6600";
+    ctxU.strokeStyle = "#ff6600"; ctxU.lineWidth = 4;
+    ctxU.strokeRect(40, 12, 120, 10);
+    for(let x=55; x<160; x+=15) {
+        ctxU.beginPath(); ctxU.moveTo(x, 12); ctxU.lineTo(x, 22); ctxU.stroke();
+    }
+</script>
+
+</body>
+</html>

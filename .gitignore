@@ -1,0 +1,21 @@
+# Executáveis / instaladores (não fazem parte do projeto)
+*.exe
+
+# Dependências
+node_modules/
+
+# Arquivos do sistema operacional
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.swp
+
+# Logs e temporários
+*.log
+*.tmp
